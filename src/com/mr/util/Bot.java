@@ -85,6 +85,36 @@ public class Bot extends Tank {
         }
     }
 
+    /**
+     * 三秒设置移动
+     */
+    public void go(){
+       if(isAttackCoolDown()){ // 如果攻击冷却 时间结束
+            attack(); //攻击
+       }
+       if(MoveTimer >= 3000){ //如果移动计时器记录超过3 秒
+           direction = randomDirection(); //随机调整 移动方向
+           MoveTimer = 0; //重置移动计时器
+       }else{
+           MoveTimer += fresh; // 计时器按照刷新时间递增
+       }
+       switch (direction){
+           case RIGHT:
+               rightward();
+               break;
+           case LEFT:
+               leftward();
+               break;
+           case DOWN:
+               downward();
+               break;
+           case UP:
+               upward();
+               break;
+       }
+    }
+
+
     public Bot(int x, int y, int width, int height) {
         super(x, y, width, height);
     }

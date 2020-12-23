@@ -255,6 +255,16 @@ public class Tank extends VisibleImage {
         this.attackCoolDownTime = attackCoolDownTime;
     }
 
+
+
+    /**
+     * 获取攻击功能是否处于冷却
+     *
+     * @return 攻击是否冷却
+     */
+    public boolean isAttackCoolDown() {
+        return attackCoolDown;
+    }
     public Tank(int x, int y, int width, int height) {
         super(x, y, width, height);
     }
